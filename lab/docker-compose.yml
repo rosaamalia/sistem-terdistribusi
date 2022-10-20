@@ -12,9 +12,11 @@ services:
       - ./work:/home/jovyan/work
       - ./script:/script
     command: "sh /script/run.sh"
+    ports:
+      - 8888:8888
     networks:
       ds-network:
-        ipv4_address: 172.16.16.101
+        ipv4_address: 172.16.17.101
   mesin2:
     container_name: ds-mesin-2
     image: jupyter/scipy-notebook
@@ -26,9 +28,11 @@ services:
       - ./work:/home/jovyan/work
       - ./script:/script
     command: "sh /script/run.sh"
+    ports:
+      - 8889:8888
     networks:
       ds-network:
-        ipv4_address: 172.16.16.102
+        ipv4_address: 172.16.17.102
   mesin3:
     container_name: ds-mesin-3
     image: jupyter/scipy-notebook
@@ -40,9 +44,11 @@ services:
       - ./work:/home/jovyan/work
       - ./script:/script
     command: "sh /script/run.sh"
+    ports:
+      - 9000:8888
     networks:
       ds-network:
-        ipv4_address: 172.16.16.103
+        ipv4_address: 172.16.17.103
   mesin4:
     container_name: ds-mesin-4
     image: jupyter/scipy-notebook
@@ -54,9 +60,11 @@ services:
       - ./work:/home/jovyan/work
       - ./script:/script
     command: "sh /script/run.sh"
+    ports:
+      - 9001:8888
     networks:
       ds-network:
-        ipv4_address: 172.16.16.104
+        ipv4_address: 172.16.17.104
   mesin5:
     container_name: ds-mesin-5
     image: jupyter/scipy-notebook
@@ -68,9 +76,11 @@ services:
       - ./work:/home/jovyan/work
       - ./script:/script
     command: "sh /script/run.sh"
+    ports:
+      - 9002:8888
     networks:
       ds-network:
-        ipv4_address: 172.16.16.105
+        ipv4_address: 172.16.17.105
 
 networks:
   ds-network:
@@ -78,5 +88,5 @@ networks:
     ipam:
       driver: default
       config:
-       - subnet: 172.16.16.0/24
-         gateway: 172.16.16.1
+        - subnet: 172.16.17.0/24
+          gateway: 172.16.17.1
